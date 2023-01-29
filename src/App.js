@@ -1,5 +1,11 @@
+import SortPanal from "./components/SortPanal";
+
 const App = () => {
-    return <>Hello world</>;
+    return (
+        <>
+            <SortPanal />
+        </>
+    );
 };
 
 export default App;
