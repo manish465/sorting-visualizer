@@ -10,23 +10,19 @@ const SortPanal = () => {
     const [isSorting, setIsSorting] = useState(false);
     const [ascending, setAscending] = useState(true);
 
-    const genrateArray = () => {
+    const genrateArray = (len, max, min) => {
         setIsSorting(false);
         const currentArr = [];
 
-        for (let i = 0; i < arrLen; i++) {
-            currentArr.push(
-                Math.floor(
-                    Math.random() * (range.max - range.min + 1) + range.min
-                )
-            );
+        for (let i = 0; i < len; i++) {
+            currentArr.push(Math.floor(Math.random() * (max - min + 1) + min));
         }
 
         setArr(currentArr);
     };
 
     useEffect(() => {
-        genrateArray();
+        genrateArray(arrLen, range.max, range.min);
     }, [range.max, range.min, arrLen]);
 
     useEffect(() => {

@@ -62,7 +62,7 @@ const AppBar = ({
                 className="sort"
                 color="#f5deb3"
                 size="80px"
-                onClick={genrateArray}
+                onClick={() => genrateArray(arrLen, range.max, range.min)}
             />
             {ascending ? (
                 <HiSortDescending
