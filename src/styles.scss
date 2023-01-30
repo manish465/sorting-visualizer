@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: black;
+}
+
 .panal-wrapper {
     width: 100%;
     height: 100vh;
@@ -11,31 +15,25 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    padding: 10px 20px;
+    padding: 10px;
     position: relative;
 
     .panal {
         display: flex;
-        gap: 2px;
+        gap: 1px;
         width: 100%;
 
         .bar {
             flex: auto;
-            background-color: black;
-        }
-
-        .compare-bar {
-            background-color: yellow;
-        }
-
-        .swap-bar {
-            background-color: red;
+            background-color: wheat;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
     }
 
     header {
         position: absolute;
-        bottom: 200px;
+        bottom: 100px;
         display: flex;
         width: 100%;
         flex-direction: row;
@@ -46,13 +44,22 @@
             display: flex;
             flex-direction: column;
 
+            label {
+                color: wheat;
+                font-size: 1.2rem;
+                font-weight: 900;
+                margin-bottom: 10px;
+            }
+
             input {
-                background-color: none;
+                background-color: transparent;
                 border: 3px solid gray;
                 padding: 10px 20px;
                 border-radius: 20px;
+                color: #f5deb3;
+                font-size: 1.2rem;
 
-                &:active {
+                &:focus {
                     outline: none;
                 }
             }

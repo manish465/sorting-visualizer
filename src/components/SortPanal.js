@@ -3,8 +3,8 @@ import AppBar from "./AppBar";
 import Bar from "./Bar";
 
 const SortPanal = () => {
-    const [arrLen, setArrLen] = useState(50);
-    const [range, setRange] = useState({ min: 10, max: 100 });
+    const [arrLen, setArrLen] = useState(20);
+    const [range, setRange] = useState({ min: 10, max: 200 });
     const [arr, setArr] = useState([]);
     const [isSorting, setIsSorting] = useState(false);
 
@@ -40,7 +40,7 @@ const SortPanal = () => {
                             currentArr[j + 1] = temp;
                             setArr(currentArr);
                         }
-                    }, 100);
+                    }, 50);
                 }
             }
         }
@@ -60,6 +60,7 @@ const SortPanal = () => {
                 setRange={setRange}
                 setIsSorting={setIsSorting}
                 genrateArray={genrateArray}
+                isSorting={isSorting}
             />
         </div>
     );
