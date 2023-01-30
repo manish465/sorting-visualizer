@@ -3,12 +3,13 @@ import AppBar from "./AppBar";
 import Bar from "./Bar";
 
 const SortPanal = () => {
-    const [arrLen, setArrLen] = useState(10);
+    const [arrLen, setArrLen] = useState(50);
     const [range, setRange] = useState({ min: 10, max: 100 });
     const [arr, setArr] = useState([]);
     const [isSorting, setIsSorting] = useState(false);
 
-    useEffect(() => {
+    const genrateArray = () => {
+        setIsSorting(false);
         const currentArr = [];
 
         for (let i = 0; i < arrLen; i++) {
@@ -20,6 +21,10 @@ const SortPanal = () => {
         }
 
         setArr(currentArr);
+    };
+
+    useEffect(() => {
+        genrateArray();
     }, [range.max, range.min, arrLen]);
 
     useEffect(() => {
@@ -54,6 +59,7 @@ const SortPanal = () => {
                 setArrLen={setArrLen}
                 setRange={setRange}
                 setIsSorting={setIsSorting}
+                genrateArray={genrateArray}
             />
         </div>
     );
