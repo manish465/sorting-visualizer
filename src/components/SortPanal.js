@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { bubbleSortAsc, bubbleSortDec } from "../algorithm/bubbleSort";
 import AppBar from "./AppBar";
 import Bar from "./Bar";
 
@@ -7,6 +8,7 @@ const SortPanal = () => {
     const [range, setRange] = useState({ min: 10, max: 200 });
     const [arr, setArr] = useState([]);
     const [isSorting, setIsSorting] = useState(false);
+    const [ascending, setAscending] = useState(true);
 
     const genrateArray = () => {
         setIsSorting(false);
@@ -30,21 +32,11 @@ const SortPanal = () => {
     useEffect(() => {
         if (isSorting) {
             const currentArr = arr.slice();
-
-            for (let i = 0; i < currentArr.length; i++) {
-                for (let j = 0; j < currentArr.length - i - 1; j++) {
-                    setTimeout(() => {
-                        if (currentArr[j] > currentArr[j + 1]) {
-                            const temp = currentArr[j];
-                            currentArr[j] = currentArr[j + 1];
-                            currentArr[j + 1] = temp;
-                            setArr(currentArr);
-                        }
-                    }, 50);
-                }
-            }
+            ascending
+                ? bubbleSortAsc(currentArr, setArr)
+                : bubbleSortDec(currentArr, setArr);
         }
-    }, [isSorting, arr]);
+    }, [isSorting, arr, ascending]);
 
     return (
         <div className="panal-wrapper">
@@ -61,6 +53,8 @@ const SortPanal = () => {
                 setIsSorting={setIsSorting}
                 genrateArray={genrateArray}
                 isSorting={isSorting}
+                ascending={ascending}
+                setAscending={setAscending}
             />
         </div>
     );

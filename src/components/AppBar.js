@@ -1,5 +1,6 @@
 import { AiFillPlayCircle } from "react-icons/ai";
 import { FaRandom } from "react-icons/fa";
+import { HiSortAscending, HiSortDescending } from "react-icons/hi";
 
 const AppBar = ({
     arrLen,
@@ -9,6 +10,8 @@ const AppBar = ({
     setIsSorting,
     genrateArray,
     isSorting,
+    ascending,
+    setAscending,
 }) => {
     return (
         <header>
@@ -61,6 +64,21 @@ const AppBar = ({
                 size="80px"
                 onClick={genrateArray}
             />
+            {ascending ? (
+                <HiSortDescending
+                    className="sort"
+                    color="#f5deb3"
+                    size="80px"
+                    onClick={() => setAscending(false)}
+                />
+            ) : (
+                <HiSortAscending
+                    className="sort"
+                    color="#f5deb3"
+                    size="80px"
+                    onClick={() => setAscending(true)}
+                />
+            )}
         </header>
     );
 };
