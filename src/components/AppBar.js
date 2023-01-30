@@ -35,7 +35,6 @@ const AppBar = ({ arrLen, range, setArrLen, setRange, setIsSorting }) => {
             <button
                 onClick={() => {
                     setIsSorting(true);
-                    console.log("true");
                 }}
             >
                 Sort

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AppBar from "./AppBar";
+import Bar from "./Bar";
 
 const SortPanal = () => {
     const [arrLen, setArrLen] = useState(10);
@@ -21,26 +22,22 @@ const SortPanal = () => {
         setArr(currentArr);
     }, [range.max, range.min, arrLen]);
 
-    const bubbleSort = () => {
-        const currentArr = arr.slice();
-
-        for (let i = 0; i < currentArr.length; i++) {
-            for (let j = 0; j < currentArr.length - i - 1; j++) {
-                setTimeout(() => {
-                    if (currentArr[j] > currentArr[j + 1]) {
-                        const temp = currentArr[j];
-                        currentArr[j] = currentArr[j + 1];
-                        currentArr[j + 1] = temp;
-                        setArr(currentArr);
-                    }
-                }, 300);
-            }
-        }
-    };
-
     useEffect(() => {
         if (isSorting) {
-            bubbleSort();
+            const currentArr = arr.slice();
+
+            for (let i = 0; i < currentArr.length; i++) {
+                for (let j = 0; j < currentArr.length - i - 1; j++) {
+                    setTimeout(() => {
+                        if (currentArr[j] > currentArr[j + 1]) {
+                            const temp = currentArr[j];
+                            currentArr[j] = currentArr[j + 1];
+                            currentArr[j + 1] = temp;
+                            setArr(currentArr);
+                        }
+                    }, 100);
+                }
+            }
         }
     }, [isSorting, arr]);
 
@@ -48,7 +45,7 @@ const SortPanal = () => {
         <div className="panal-wrapper">
             <div className="panal">
                 {arr.map((ele, key) => (
-                    <span key={key}>{ele.toString()}</span>
+                    <Bar key={key} ele={ele} />
                 ))}
             </div>
             <AppBar

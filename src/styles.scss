@@ -5,21 +5,20 @@
 }
 
 .panal-wrapper {
-    width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 30px;
+    padding: 10px 20px;
 
     .panal {
         display: flex;
-        gap: 30px;
-        span {
-            font-size: 2rem;
-            font-weight: 900;
-            color: tomato;
+        gap: 2px;
+        width: 100%;
+
+        .bar {
+            flex: auto;
+            background-color: black;
         }
     }
 }
